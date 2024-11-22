@@ -36,8 +36,12 @@
     const taskController = (view: typeof taskView) => {
         const tasks: Array<Object> = [todo, reminder];
 
-        document.getElementById('taskForm')?.addEventListener('submit', () => {
-            
-        })
+        const handleEvent = (event: Event) => {
+            event.preventDefault();
+            view.reder(tasks);
+        }
+        document.getElementById('taskForm')?.addEventListener('submit', handleEvent);
     };
+
+    taskController(taskView);
 })()
