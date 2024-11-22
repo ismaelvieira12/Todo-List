@@ -23,13 +23,21 @@
                 taskList.removeChild(taskList.firstChild); 
             }
 
-                tasks.forEach((tasks) => {
-                    const li = document.createElement('li');    
-                    const textNode = document.createTextNode(JSON.stringify(tasks));
-                    li.appendChild(textNode);
-                    taskList?.appendChild(li)       
-                })
+            tasks.forEach((tasks) => {
+                const li = document.createElement('li');    
+                const textNode = document.createTextNode(JSON.stringify(tasks));
+                li.appendChild(textNode);
+                taskList?.appendChild(li)       
+            });
         }
     }
 
+    // Para armazenar em memória
+    const taskController = (view: typeof taskView) => {
+        const tasks: Array<Object> = [todo, reminder];
+
+        document.getElementById('taskForm')?.addEventListener('submit', () => {
+            
+        })
+    };
 })()
