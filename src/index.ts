@@ -6,9 +6,27 @@
         description: 'todo',
         done: false
     }
-
+        // Para lembrete
     const reminder = {
         description: 'reminder',
         date: '22.11.2024'
     }
+
+    // Onde o código se comunica com a interface
+    const taskView = {
+        // Reder vai receber uma lista, que será os (todos e remindes)
+        reder(tasks: Array<Object>){
+            const taskList = document.querySelector('#tasksList');  
+
+            // para limpar os elementos usaremos while
+            while(taskList?.firstChild){
+                taskList.removeChild(taskList.firstChild); 
+            }
+
+                tasks.forEach((tasks) => {
+                        const li = document.createElement('li');    
+                })
+        }
+    }
+
 })()
