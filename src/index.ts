@@ -24,7 +24,10 @@
             }
 
                 tasks.forEach((tasks) => {
-                        const li = document.createElement('li');    
+                    const li = document.createElement('li');    
+                    const textNode = document.createTextNode(JSON.stringify(tasks));
+                    li.appendChild(textNode);
+                    taskList?.appendChild(li)       
                 })
         }
     }
