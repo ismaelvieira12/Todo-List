@@ -7,10 +7,14 @@
         render(): string;
     }
     class Reminder implements Task{
-        id: string;
-        dateCreated: Date;
-        dateUpdated: Date;
-        description: string;
+        id: string = '';
+        dateCreated: Date =  new Date;
+        dateUpdated: Date = new Date;
+        description: string = '';
+        
+        Date = new Date();
+        notifications: Array<string> = ['EMAIL'];
+
         render(): string {
            JSON.stringify(this);
         }
