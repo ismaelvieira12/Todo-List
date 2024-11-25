@@ -1,4 +1,11 @@
 ( () => {
+    interface Task {
+        id: string;
+        dateCreated: Date;
+        dateUpdated: Data;
+        description: string;
+        render(): string;
+    }
     const todo ={
         // Descrição do objeto
         // DONE = é a fleg que marca se ja foi feito ou não
