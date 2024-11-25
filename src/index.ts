@@ -2,9 +2,19 @@
     interface Task {
         id: string;
         dateCreated: Date;
-        dateUpdated: Data;
+        dateUpdated: Date;
         description: string;
         render(): string;
+    }
+    class Reminder implements Task{
+        id: string;
+        dateCreated: Date;
+        dateUpdated: Date;
+        description: string;
+        render(): string {
+           JSON.stringify(this);
+        }
+
     }
     const todo ={
         // Descrição do objeto
