@@ -8,17 +8,16 @@
     }
     class Reminder implements Task{
         id: string = '';
-        dateCreated: Date =  new Date;
-        dateUpdated: Date = new Date;
+        dateCreated: Date =  new Date();
+        dateUpdated: Date = new Date();
         description: string = '';
         
-        Date = new Date();
+        date: Date = new Date();
         notifications: Array<string> = ['EMAIL'];
-
+        
         render(): string {
-           JSON.stringify(this);
+            return JSON.stringify(this);
         }
-
     }
     const todo ={
         // Descrição do objeto
