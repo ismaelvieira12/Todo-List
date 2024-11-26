@@ -15,6 +15,12 @@
         date: Date = new Date();
         notifications: Array<string> = ['EMAIL'];
         
+        constructor(description: string, date: Date, notifications: Array<string>) {
+            this.description = description;
+            this.date = date;
+            this.notifications = notifications;
+        }
+
         render(): string {
             return JSON.stringify(this);
         }
