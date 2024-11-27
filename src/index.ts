@@ -53,17 +53,17 @@
     // Onde o código se comunica com a interface
     const taskView = {
         // Reder vai receber uma lista, que será os (todos e remindes)
-        reder(tasks: Array<Task>){
-            const taskList = document.querySelector('#tasksList');  
+        render(tasks: Array<Task>){
+            const taskList = document.getElementById('tasksList');  
 
             // para limpar os elementos usaremos while
             while(taskList?.firstChild){
                 taskList.removeChild(taskList.firstChild); 
             }
 
-            tasks.forEach((tasks) => {
+            tasks.forEach((task) => {
                 const li = document.createElement('li');    
-                const textNode = document.createTextNode(tasks.render());
+                const textNode = document.createTextNode(task.render());
                 li.appendChild(textNode);
                 taskList?.appendChild(li)       
             });
@@ -76,7 +76,7 @@
 
         const handleEvent = (event: Event) => {
             event.preventDefault();
-            view.reder(tasks);
+            view.render(tasks);
         }
         document.getElementById('taskForm')?.addEventListener('submit', handleEvent);
     };
