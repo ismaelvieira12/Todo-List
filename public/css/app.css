@@ -14,3 +14,11 @@
     --cor05: #f6e8ea;
 
 }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; 
+}
