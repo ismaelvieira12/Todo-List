@@ -1,4 +1,14 @@
 ( () => {
+    enum NotificationPlatform {
+        SMS = 'SMS',
+        EMAIL = 'EMAIL',
+        PUSH_NOTIFICATION = 'PUSH_NOTIFICATION',
+    }
+
+    const UUID = (): string => {
+        return Math.random().toString(32).substring(2, 9);
+    } 
+
     interface Task {
         id: string;
         dateCreated: Date;
@@ -7,15 +17,15 @@
         render(): string;
     }
     class Reminder implements Task{
-        id: string = '';
+        id: string = UUID()
         dateCreated: Date =  new Date();
         dateUpdated: Date = new Date();
         description: string = '';
         
         date: Date = new Date();
-        notifications: Array<string> = ['EMAIL'];
+        notifications: Array<NotificationPlatform> = [NotificationPlatform.EMAIL];
         
-        constructor(description: string, date: Date, notifications: Array<string>) {
+        constructor(description: string, date: Date, notifications: Array<NotificationPlatform>) {
             this.description = description;
             this.date = date;
             this.notifications = notifications;
@@ -27,7 +37,7 @@
     }
 
     class Todo implements Task{
-        id: string = '';
+        id: string = UUID();
         dateCreated: Date = new Date();
         dateUpdated: Date = new Date();
         description: string = '';
@@ -48,7 +58,7 @@
 
       
     // Para lembrete
-    const reminder = new Reminder('Reminder criado com classe', new Date(), ['EMAIL'])
+    const reminder = new Reminder('Reminder criado com classe', new Date(), [NotificationPlatform.EMAIL])
 
     // Onde o código se comunica com a interface
     const taskView = {

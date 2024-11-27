@@ -1,13 +1,22 @@
 "use strict";
 (function () {
+    var NotificationPlatform;
+    (function (NotificationPlatform) {
+        NotificationPlatform["SMS"] = "SMS";
+        NotificationPlatform["EMAIL"] = "EMAIL";
+        NotificationPlatform["PUSH_NOTIFICATION"] = "PUSH_NOTIFICATION";
+    })(NotificationPlatform || (NotificationPlatform = {}));
+    var UUID = function () {
+        return Math.random().toString(32).substring(2, 9);
+    };
     var Reminder = /** @class */ (function () {
         function Reminder(description, date, notifications) {
-            this.id = '';
+            this.id = UUID();
             this.dateCreated = new Date();
             this.dateUpdated = new Date();
             this.description = '';
             this.date = new Date();
-            this.notifications = ['EMAIL'];
+            this.notifications = [NotificationPlatform.EMAIL];
             this.description = description;
             this.date = date;
             this.notifications = notifications;
@@ -19,7 +28,7 @@
     }());
     var Todo = /** @class */ (function () {
         function Todo(description) {
-            this.id = '';
+            this.id = UUID();
             this.dateCreated = new Date();
             this.dateUpdated = new Date();
             this.description = '';
@@ -35,7 +44,7 @@
     // DONE = é a fleg que marca se ja foi feito ou não
     var todo = new Todo('Tudo criado com classe');
     // Para lembrete
-    var reminder = new Reminder('Reminder criado com classe', new Date(), ['EMAIL']);
+    var reminder = new Reminder('Reminder criado com classe', new Date(), [NotificationPlatform.EMAIL]);
     // Onde o código se comunica com a interface
     var taskView = {
         // Reder vai receber uma lista, que será os (todos e remindes)
