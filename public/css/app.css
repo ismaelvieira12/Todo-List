@@ -34,16 +34,25 @@ body{
         /* Button toggle */
         & #toggleMode{
             margin-bottom: 15px;
-            padding: 5px;
+            padding: 10px;
             font-size: 15px;
             border: none;
+            border-radius: 5px;
             background-color: var(--cor03);
             color: var(--cor01);
             cursor: pointer;
-
+            transition: all 0.1s;
             &:hover{
                 background-color: #94f9ea;
             }
+        }
+
+        & hr{
+            margin: 5px 0;
+        }
+
+        & #todoSet{
+            padding: 10px 0;
         }
     }
 }
