@@ -30,5 +30,20 @@ body{
         height: 500px;
         width: 500px;
         padding: 15px;
+
+        /* Button toggle */
+        & #toggleMode{
+            margin-bottom: 15px;
+            padding: 5px;
+            font-size: 15px;
+            border: none;
+            background-color: var(--cor03);
+            color: var(--cor01);
+            cursor: pointer;
+
+            &:hover{
+                background-color: #94f9ea;
+            }
+        }
     }
 }
