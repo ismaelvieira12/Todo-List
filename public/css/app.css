@@ -14,6 +14,7 @@
     --cor05: #f6e8ea;
 
     /* Hover do button */
+    --hover01:#94f9ea87;
 }
 
 body{
@@ -44,9 +45,10 @@ body{
             background-color: var(--cor03);
             color: var(--cor01);
             cursor: pointer;
-            transition: all 0.1s;
+            transition: all 0.5s;
             &:hover{
-                background-color: #94f9ea;
+                background-color: var(--hover01);
+                color: #ffffff;
             }
         }
 

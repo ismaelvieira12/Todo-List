@@ -25,23 +25,35 @@
             return JSON.stringify(this);
         }
     }
-    const todo ={
-        // Descrição do objeto
-        // DONE = é a fleg que marca se ja foi feito ou não
 
-        description: 'todo',
-        done: false
+    class Todo implements Task{
+        id: string = '';
+        dateCreated: Date = new Date();
+        dateUpdated: Date = new Date();
+        description: string = '';
+        
+        done: boolean = false;
+        constructor(description: string){
+            this.description = description;
+        }
+
+        render(): string {
+            return JSON.stringify(this);
+        }
     }
-        // Para lembrete
-    const reminder = {
-        description: 'reminder',
-        date: '22.11.2024'
-    }
+
+    // Descrição do objeto
+    // DONE = é a fleg que marca se ja foi feito ou não
+    const todo = new Todo('Tudo criado com classe');
+
+      
+    // Para lembrete
+    const reminder = new Reminder('Reminder criado com classe', new Date(), ['EMAIL'])
 
     // Onde o código se comunica com a interface
     const taskView = {
         // Reder vai receber uma lista, que será os (todos e remindes)
-        reder(tasks: Array<Object>){
+        reder(tasks: Array<Task>){
             const taskList = document.querySelector('#tasksList');  
 
             // para limpar os elementos usaremos while
@@ -51,7 +63,7 @@
 
             tasks.forEach((tasks) => {
                 const li = document.createElement('li');    
-                const textNode = document.createTextNode(JSON.stringify(tasks));
+                const textNode = document.createTextNode(tasks.render());
                 li.appendChild(textNode);
                 taskList?.appendChild(li)       
             });
@@ -60,7 +72,7 @@
 
     // Para armazenar em memória
     const taskController = (view: typeof taskView) => {
-        const tasks: Array<Object> = [todo, reminder];
+        const tasks: Array<Task> = [todo, reminder];
 
         const handleEvent = (event: Event) => {
             event.preventDefault();
