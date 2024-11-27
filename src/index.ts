@@ -32,7 +32,10 @@
         }
 
         render(): string {
-            return JSON.stringify(this);
+            return `
+            description: ${this.description}
+            date: ${this.date}
+            platform: ${this.notifications.join(',')}`;
         }
     }
 

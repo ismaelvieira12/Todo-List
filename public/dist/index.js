@@ -22,7 +22,7 @@
             this.notifications = notifications;
         }
         Reminder.prototype.render = function () {
-            return JSON.stringify(this);
+            return "\n            description: ".concat(this.description, "\n            date: ").concat(this.date, "\n            platform: ").concat(this.notifications.join(','));
         };
         return Reminder;
     }());
