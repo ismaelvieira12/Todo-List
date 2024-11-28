@@ -10,8 +10,14 @@
     } 
 
     const DateUtils = {
+        tomorrow(): Date {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            return tomorrow
+        },
+
         today(): Date {
-            return;
+            return new Date();
         },
 
         formatDate (date: Date): string {
@@ -28,11 +34,11 @@
     }
     class Reminder implements Task{
         id: string = UUID()
-        dateCreated: Date =  new Date();
-        dateUpdated: Date = new Date();
+        dateCreated: Date = DateUtils.today();
+        dateUpdated: Date = DateUtils.today();
         description: string = '';
         
-        date: Date = new Date();
+        date: Date = DateUtils.tomorrow();
         notifications: Array<NotificationPlatform> = [NotificationPlatform.EMAIL];
         
         constructor(description: string, date: Date, notifications: Array<NotificationPlatform>) {
