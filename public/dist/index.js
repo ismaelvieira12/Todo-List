@@ -6,6 +6,10 @@
         NotificationPlatform["EMAIL"] = "EMAIL";
         NotificationPlatform["PUSH_NOTIFICATION"] = "PUSH_NOTIFICATION";
     })(NotificationPlatform || (NotificationPlatform = {}));
+    eneum;
+    ViewMode;
+    {
+    }
     var UUID = function () {
         return Math.random().toString(32).substring(2, 9);
     };
