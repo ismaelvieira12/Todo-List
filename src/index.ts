@@ -10,6 +10,10 @@
     } 
 
     const DateUtils = {
+        today(): Date {
+            return;
+        },
+
         formatDate (date: Date): string {
             return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
         }
@@ -40,7 +44,7 @@
         render(): string {
             return `
             description: ${this.description}
-            date: ${this.date}
+            date: ${DateUtils.formatDate(this.date)}
             platform: ${this.notifications.join(',')}`;
         }
     }
