@@ -85,3 +85,6 @@ body{
 
 @media(max-width: 428px){
     #app{
+        width: 80%;
+    }
+}
