@@ -9,6 +9,12 @@
         return Math.random().toString(32).substring(2, 9);
     } 
 
+    const DateUtils = {
+        formatDate (date: Date): string {
+            return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+        }
+    }
+
     interface Task {
         id: string;
         dateCreated: Date;
