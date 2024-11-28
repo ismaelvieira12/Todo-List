@@ -9,34 +9,47 @@
     var UUID = function () {
         return Math.random().toString(32).substring(2, 9);
     };
+    var DateUtils = {
+        tomorrow: function () {
+            var tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            return tomorrow;
+        },
+        today: function () {
+            return new Date();
+        },
+        formatDate: function (date) {
+            return "".concat(date.getDate(), ".").concat(date.getMonth() + 1, ".").concat(date.getFullYear());
+        }
+    };
     var Reminder = /** @class */ (function () {
         function Reminder(description, date, notifications) {
             this.id = UUID();
-            this.dateCreated = new Date();
-            this.dateUpdated = new Date();
+            this.dateCreated = DateUtils.today();
+            this.dateUpdated = DateUtils.today();
             this.description = '';
-            this.date = new Date();
+            this.date = DateUtils.tomorrow();
             this.notifications = [NotificationPlatform.EMAIL];
             this.description = description;
             this.date = date;
             this.notifications = notifications;
         }
         Reminder.prototype.render = function () {
-            return "\n            description: ".concat(this.description, "\n            date: ").concat(this.date, "\n            platform: ").concat(this.notifications.join(','));
+            return "\n            description: ".concat(this.description, "\n            date: ").concat(DateUtils.formatDate(this.date), "\n            platform: ").concat(this.notifications.join(','));
         };
         return Reminder;
     }());
     var Todo = /** @class */ (function () {
         function Todo(description) {
             this.id = UUID();
-            this.dateCreated = new Date();
-            this.dateUpdated = new Date();
+            this.dateCreated = DateUtils.today();
+            this.dateUpdated = DateUtils.today();
             this.description = '';
             this.done = false;
             this.description = description;
         }
         Todo.prototype.render = function () {
-            return JSON.stringify(this);
+            return "\n            description: ".concat(this.description, "\n            done: ").concat(this.done, "\n            ");
         };
         return Todo;
     }());

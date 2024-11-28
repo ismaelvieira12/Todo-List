@@ -57,8 +57,8 @@
 
     class Todo implements Task{
         id: string = UUID();
-        dateCreated: Date = new Date();
-        dateUpdated: Date = new Date();
+        dateCreated: Date = DateUtils.today();
+        dateUpdated: Date = DateUtils.today();
         description: string = '';
         
         done: boolean = false;
@@ -67,7 +67,10 @@
         }
 
         render(): string {
-            return JSON.stringify(this);
+            return `
+            description: ${this.description}
+            done: ${this.done}
+            ` 
         }
     }
 
