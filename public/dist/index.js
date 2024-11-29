@@ -6,8 +6,11 @@
         NotificationPlatform["EMAIL"] = "EMAIL";
         NotificationPlatform["PUSH_NOTIFICATION"] = "PUSH_NOTIFICATION";
     })(NotificationPlatform || (NotificationPlatform = {}));
-    // eneum ViewMode {
-    // }
+    var ViewMode;
+    (function (ViewMode) {
+        ViewMode["TODO"] = "TODO";
+        ViewMode["REMINDER"] = "REMINDER";
+    })(ViewMode || (ViewMode = {}));
     var UUID = function () {
         return Math.random().toString(32).substring(2, 9);
     };
@@ -81,6 +84,7 @@
     var taskController = function (view) {
         var _a;
         var tasks = [todo, reminder];
+        var mode;
         var handleEvent = function (event) {
             event.preventDefault();
             view.render(tasks);

@@ -5,9 +5,10 @@
         PUSH_NOTIFICATION = 'PUSH_NOTIFICATION',
     }
 
-    // eneum ViewMode {
-        
-    // }
+    enum ViewMode {
+        TODO = 'TODO',
+        REMINDER = 'REMINDER',   
+    }
 
     const UUID = (): string => {
         return Math.random().toString(32).substring(2, 9);
@@ -109,6 +110,7 @@
     // Para armazenar em memória
     const taskController = (view: typeof taskView) => {
         const tasks: Array<Task> = [todo, reminder];
+        let mode
 
         const handleEvent = (event: Event) => {
             event.preventDefault();
