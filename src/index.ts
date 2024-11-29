@@ -90,7 +90,7 @@
     // Onde o código se comunica com a interface
     const taskView = {
         // Reder vai receber uma lista, que será os (todos e remindes)
-        render(tasks: Array<Task>){
+        render(tasks: Array<Task>, mode: ViewMode){
             const taskList = document.getElementById('tasksList');  
 
             // para limpar os elementos usaremos while
