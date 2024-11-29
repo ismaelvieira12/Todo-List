@@ -78,6 +78,8 @@
                 li.appendChild(textNode);
                 taskList === null || taskList === void 0 ? void 0 : taskList.appendChild(li);
             });
+            var todoSet = document.getElementById('todoSet');
+            var reminderSet = document.getElementById('reminderSet');
         }
     };
     // Para armazenar em memória

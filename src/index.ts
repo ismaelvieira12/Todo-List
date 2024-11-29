@@ -104,6 +104,11 @@
                 li.appendChild(textNode);
                 taskList?.appendChild(li)       
             });
+
+            const todoSet = document.getElementById('todoSet');
+            const reminderSet = document.getElementById('reminderSet');
+
+            
         }
     }
 
