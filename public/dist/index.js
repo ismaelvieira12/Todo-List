@@ -71,6 +71,15 @@
             form.reset();
             return new Todo(todoDescription);
         },
+        getReminder: function (form) {
+            var reminderNotifications = [
+                form.notifications.value,
+            ];
+            var reminderDate = new Date(form.reminderDate.value);
+            var reminderDescription = form.reminderDescription.value;
+            form.reset();
+            return new Reminder(reminderDescription, reminderDate, reminderNotifications);
+        },
         // Reder vai receber uma lista, que será os (todos e remindes)
         render: function (tasks, mode) {
             var taskList = document.getElementById('tasksList');
@@ -103,11 +112,20 @@
     };
     // Para armazenar em memória
     var taskController = function (view) {
-        var _a;
-        var tasks = [todo, reminder];
+        var _a, _b;
+        var tasks = [];
         var mode = ViewMode.TODO;
         var handleEvent = function (event) {
             event.preventDefault();
+            var form = event.target;
+            switch (mode) {
+                case ViewMode.TODO:
+                    tasks.push(view.getTodo(form));
+                    break;
+                case ViewMode.REMINDER:
+                    tasks.push(view.getReminder(form));
+                    break;
+            }
             view.render(tasks, mode);
         };
         var handleToggleMode = function () {
@@ -121,7 +139,8 @@
             }
             view.render(tasks, mode);
         };
-        (_a = document.getElementById('taskForm')) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', handleEvent);
+        (_a = document.getElementById('toggleMode')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', handleToggleMode);
+        (_b = document.getElementById('taskForm')) === null || _b === void 0 ? void 0 : _b.addEventListener('submit', handleEvent);
     };
     taskController(taskView);
 })();

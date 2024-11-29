@@ -95,6 +95,20 @@
             form.reset();
             return new Todo(todoDescription);
         },
+        getReminder(form: HTMLFormElement): Reminder{
+            const reminderNotifications = [
+                form.notifications.value as NotificationPlatform,
+            ];
+            const reminderDate = new Date(form.reminderDate.value);
+            const reminderDescription = form.reminderDescription.value;
+
+            form.reset();
+            return new Reminder(
+                reminderDescription,
+                reminderDate,
+                reminderNotifications
+            );
+        },
         // Reder vai receber uma lista, que será os (todos e remindes)
         render(tasks: Array<Task>, mode: ViewMode){
             const taskList = document.getElementById('tasksList');  
@@ -132,13 +146,23 @@
 
     // Para armazenar em memória
     const taskController = (view: typeof taskView) => {
-        const tasks: Array<Task> = [todo, reminder];
+        const tasks: Array<Task> = [];
         let mode: ViewMode = ViewMode.TODO;
 
         const handleEvent = (event: Event) => {
             event.preventDefault();
+            const form = event.target as HTMLFormElement;
+            switch(mode as ViewMode){
+                case ViewMode.TODO:
+                    tasks.push(view.getTodo(form));
+                    break;
+                case ViewMode.REMINDER:
+                    tasks.push(view.getReminder(form));
+                    break;
+            }
             view.render(tasks, mode);
-        }
+        };
+
 
         const handleToggleMode = () => {
             switch(mode as ViewMode){
@@ -150,7 +174,8 @@
                     break;
             }
             view.render(tasks, mode)
-        }
+        };
+        document.getElementById('toggleMode')?.addEventListener('click', handleToggleMode);
 
         document.getElementById('taskForm')?.addEventListener('submit', handleEvent);
     };
