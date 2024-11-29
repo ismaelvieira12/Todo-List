@@ -89,6 +89,12 @@
 
     // Onde o código se comunica com a interface
     const taskView = {
+        // Para gravar oque foi digitado
+        getTodo(form: HTMLFormElement): Todo {
+            const todoDescription = form.todoDescription.value;
+            form.reset();
+            return new Todo(todoDescription);
+        },
         // Reder vai receber uma lista, que será os (todos e remindes)
         render(tasks: Array<Task>, mode: ViewMode){
             const taskList = document.getElementById('tasksList');  
@@ -114,6 +120,11 @@
                 todoSet?.removeAttribute('disabled');
                 reminderSet?.setAttribute('style', 'display: none');
                 reminderSet?.setAttribute('disabled', 'true');
+            }else{
+                reminderSet?.setAttribute('style', 'display: block');
+                reminderSet?.removeAttribute('disabled');
+                todoSet?.setAttribute('style', 'display: none');
+                todoSet?.setAttribute('disabled', 'true');
             }
 
         }

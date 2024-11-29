@@ -65,6 +65,12 @@
     var reminder = new Reminder('Reminder criado com classe', new Date(), [NotificationPlatform.EMAIL]);
     // Onde o código se comunica com a interface
     var taskView = {
+        // Para gravar oque foi digitado
+        getTodo: function (form) {
+            var todoDescription = form.todoDescription.value;
+            form.reset();
+            return new Todo(todoDescription);
+        },
         // Reder vai receber uma lista, que será os (todos e remindes)
         render: function (tasks, mode) {
             var taskList = document.getElementById('tasksList');
@@ -86,6 +92,12 @@
                 todoSet === null || todoSet === void 0 ? void 0 : todoSet.removeAttribute('disabled');
                 reminderSet === null || reminderSet === void 0 ? void 0 : reminderSet.setAttribute('style', 'display: none');
                 reminderSet === null || reminderSet === void 0 ? void 0 : reminderSet.setAttribute('disabled', 'true');
+            }
+            else {
+                reminderSet === null || reminderSet === void 0 ? void 0 : reminderSet.setAttribute('style', 'display: block');
+                reminderSet === null || reminderSet === void 0 ? void 0 : reminderSet.removeAttribute('disabled');
+                todoSet === null || todoSet === void 0 ? void 0 : todoSet.setAttribute('style', 'display: none');
+                todoSet === null || todoSet === void 0 ? void 0 : todoSet.setAttribute('disabled', 'true');
             }
         }
     };
