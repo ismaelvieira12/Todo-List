@@ -80,6 +80,13 @@
             });
             var todoSet = document.getElementById('todoSet');
             var reminderSet = document.getElementById('reminderSet');
+            // Validando com IF
+            if (mode === ViewMode.TODO) {
+                todoSet === null || todoSet === void 0 ? void 0 : todoSet.setAttribute('style', 'display: block');
+                todoSet === null || todoSet === void 0 ? void 0 : todoSet.removeAttribute('disabled');
+                reminderSet === null || reminderSet === void 0 ? void 0 : reminderSet.setAttribute('style', 'display: none');
+                reminderSet === null || reminderSet === void 0 ? void 0 : reminderSet.setAttribute('disabled', 'true');
+            }
         }
     };
     // Para armazenar em memória

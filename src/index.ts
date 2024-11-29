@@ -107,8 +107,15 @@
 
             const todoSet = document.getElementById('todoSet');
             const reminderSet = document.getElementById('reminderSet');
+            // Validando com IF
 
-            
+            if(mode === ViewMode.TODO){
+                todoSet?.setAttribute('style', 'display: block');
+                todoSet?.removeAttribute('disabled');
+                reminderSet?.setAttribute('style', 'display: none');
+                reminderSet?.setAttribute('disabled', 'true');
+            }
+
         }
     }
 
