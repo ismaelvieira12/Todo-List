@@ -84,10 +84,21 @@
     var taskController = function (view) {
         var _a;
         var tasks = [todo, reminder];
-        var mode;
+        var mode = ViewMode.TODO;
         var handleEvent = function (event) {
             event.preventDefault();
-            view.render(tasks);
+            view.render(tasks, mode);
+        };
+        var handleToggleMode = function () {
+            switch (mode) {
+                case ViewMode.TODO:
+                    mode = ViewMode.REMINDER;
+                    break;
+                case ViewMode.REMINDER:
+                    mode = ViewMode.TODO;
+                    break;
+            }
+            view.render(tasks, mode);
         };
         (_a = document.getElementById('taskForm')) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', handleEvent);
     };

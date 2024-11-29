@@ -110,12 +110,25 @@
     // Para armazenar em memória
     const taskController = (view: typeof taskView) => {
         const tasks: Array<Task> = [todo, reminder];
-        let mode
+        let mode: ViewMode = ViewMode.TODO;
 
         const handleEvent = (event: Event) => {
             event.preventDefault();
-            view.render(tasks);
+            view.render(tasks, mode);
         }
+
+        const handleToggleMode = () => {
+            switch(mode as ViewMode){
+                case ViewMode.TODO:
+                    mode = ViewMode.REMINDER;
+                    break;
+                case ViewMode.REMINDER:
+                    mode = ViewMode.TODO;
+                    break;
+            }
+            view.render(tasks, mode)
+        }
+
         document.getElementById('taskForm')?.addEventListener('submit', handleEvent);
     };
 
