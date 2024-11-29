@@ -5,9 +5,9 @@
         PUSH_NOTIFICATION = 'PUSH_NOTIFICATION',
     }
 
-    eneum ViewMode {
+    // eneum ViewMode {
         
-    }
+    // }
 
     const UUID = (): string => {
         return Math.random().toString(32).substring(2, 9);
