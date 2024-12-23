@@ -29,7 +29,7 @@
             return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
         }
     }
-
+//
     interface Task {
         id: string;
         dateCreated: Date;
