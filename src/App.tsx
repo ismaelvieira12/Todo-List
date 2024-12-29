@@ -3,20 +3,20 @@ import TodoTask from './components/Todo/TodoTask'
 import "../src/style/style.css";
 import { useState } from 'react';
 
-interface task {
+interface Itask {
   id: Number,
   text: String,
 }
 function App() {
-  const [task, setTask] = useState<string>("");
-  const [todoList, setTodoList] = useState<task[]>([])// inicia um array vazio
+  const [task, setTask] = useState("");
+  const [todoList, setTodoList] = useState<Itask[]>([])// inicia um array vazio
   
   const handleClick = () => {
     const idRadom = (num: number) => Math.floor(Math.random() * num); // Cria um numero aleatório para o id
 
 
-    const newTaskObj = { id: idRadom(9999999), newTask: task} // ess NewTask faz referência a task da useState String acima
-
+    const newTaskObj = { id:idRadom(9999999), nameTask: task} // ess NewTask faz referência a task da useState String acima
+    
     setTodoList([...todoList, newTaskObj]); // essa newTaskObj faz referência ao objeto criado acima
   }
   return (
@@ -44,11 +44,9 @@ function App() {
       <TodoTask />
 
       {todoList.map(item => (
-        <div {...item.id}>
           <div>
-            {item.text}
+              {item.id}
           </div>
-        </div>
       ))}
     </div>
     
