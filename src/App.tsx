@@ -12,11 +12,12 @@ function App() {
   const [todoList, setTodoList] = useState<Itask[]>([])// inicia um array vazio
   
   const handleClick = () => {
-    const idRadom = (num: number) => Math.floor(Math.random() * num); // Cria um numero aleatório para o id
+    const idRandom = (num: number) => Math.floor(Math.random() * num); // Cria um numero aleatório para o id
 
 
-    const newTaskObj = { id:idRadom(9999999), nameTask: task} // ess NewTask faz referência a task da useState String acima
+    const newTaskObj = { id: idRandom(9999999), nameTask: task} // ess NewTask faz referência a task da useState String acima
     
+    console.log(newTaskObj);
     setTodoList([...todoList, newTaskObj]); // essa newTaskObj faz referência ao objeto criado acima
   }
   return (
@@ -36,7 +37,7 @@ function App() {
           onChange={(e) => setTask(e.target.value)}
         />
 
-        <button type="submit" className="btn-header" onClick={handleClick}>Adicionar tarefa</button>
+        <button type="submit" onClick={handleClick} className="btn-header">Adicionar tarefa</button>
       </header>
 
       <div className="line"></div>
@@ -44,9 +45,10 @@ function App() {
       <TodoTask />
 
       {todoList.map(item => (
-          <div>
-              {item.id}
-          </div>
+        <div>
+            {item.nameTask}
+            {item.id.toFixed(0)}
+        </div>
       ))}
     </div>
     
