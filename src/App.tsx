@@ -3,14 +3,14 @@ import TodoTask from './components/Todo/TodoTask'
 import "../src/style/style.css";
 import { useState } from 'react';
 
+interface task {
+  id: Number,
+  text: String,
+}
 function App() {
   const [task, setTask] = useState<string>("");
-  const [todoList, setTodoList] = useState([])// inicia um array vazio
-
-  const Interface = {
-    id: Number,
-    text: String,
-  }
+  const [todoList, setTodoList] = useState<task[]>([])// inicia um array vazio
+  
   return (
     
     <div className="App">
@@ -35,6 +35,13 @@ function App() {
 
       <TodoTask />
 
+      {todoList.map(item => (
+        <div {...item.id}>
+          <div>
+            {item.text}
+          </div>
+        </div>
+      ))}
     </div>
     
   )
