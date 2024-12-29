@@ -4,7 +4,13 @@ import "../src/style/style.css";
 import { useState } from 'react';
 
 function App() {
-  const [task, setTask] = useState("");
+  const [task, setTask] = useState<string>("");
+  const [todoList, setTodoList] = useState([])// inicia um array vazio
+
+  const Interface = {
+    id: Number,
+    text: String,
+  }
   return (
     
     <div className="App">
