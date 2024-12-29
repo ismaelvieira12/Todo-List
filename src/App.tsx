@@ -1,9 +1,10 @@
 
 import TodoTask from './components/Todo/TodoTask'
 import "../src/style/style.css";
+import { useState } from 'react';
 
 function App() {
-
+  const [task, setTask] = useState("");
   return (
     
     <div className="App">
@@ -17,6 +18,8 @@ function App() {
           placeholder="Adicione uma tarefa" 
           name="task"
           className="input"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
         />
 
         <button type="submit" className="btn-header">Adicionar tarefa</button>

@@ -10,21 +10,25 @@
 
 header h2 {
     font-weight: 100;
-    color: #84878A;
+    color: #f5f3f5;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
-
+    
     margin: 30px 0;
 }
- 
+
 input {
     margin-bottom: 25px;
     padding-left: 20px;
-
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
     border-radius: 5px;
+    &:focus{
+        color: #f5f3f5;
+        background-color: #84878A;
+    }
 }
 
 .input::-webkit-input-placeholder  { 
