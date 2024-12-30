@@ -11,6 +11,7 @@ function TodoTask({ task, deleteTask }: taskProps) {
 	
 	return (
 		<div className="card">
+
 			<div>
                 <p>{task.nameTask}</p>
             </div>
