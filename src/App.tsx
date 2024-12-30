@@ -2,11 +2,9 @@
 import TodoTask from './components/Todo/TodoTask'
 import "../src/style/style.css";
 import { useState } from 'react';
+import { Itask } from './interfaces';
 
-interface Itask {
-  id: Number,
-  text: String,
-}
+
 function App() {
   const [task, setTask] = useState("");
   const [todoList, setTodoList] = useState<Itask[]>([])// inicia um array vazio
@@ -42,13 +40,10 @@ function App() {
 
       <div className="line"></div>
 
-      <TodoTask />
+      {/* <TodoTask /> */}
 
-      {todoList.map(item => (
-        <div>
-            {item.nameTask}
-            {item.id.toFixed(0)}
-        </div>
+      {todoList.map((task, key) => (
+        <TodoTask  key={key} task={task}/>
       ))}
     </div>
     

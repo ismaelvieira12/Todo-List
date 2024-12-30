@@ -1,12 +1,17 @@
 
+import { Itask } from "../../interfaces";
 import "../Todo/todoTask.css"
 
-function TodoTask() {
+interface taskProps{
+    task: Itask
+}
+
+function TodoTask({ task }: taskProps) {
 	
 	return (
 		<div className="card">
 			<div>
-                <p>Fazer lição</p>
+                <p>{task.nameTask}</p>
             </div>
 
             <div className="line2" >
