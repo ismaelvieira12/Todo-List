@@ -3,7 +3,8 @@ import { Itask } from "../../interfaces";
 import "../Todo/todoTask.css"
 
 interface taskProps{
-    task: Itask
+    task: Itask,
+    deleteTask(deleteTaskById: number): void
 }
 
 function TodoTask({ task }: taskProps) {

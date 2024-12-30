@@ -18,6 +18,10 @@ function App() {
     console.log(newTaskObj);
     setTodoList([...todoList, newTaskObj]); // essa newTaskObj faz referência ao objeto criado acima
   }
+
+  function deleteTask (deleteTaskById: number) {
+    setTodoList(todoList.filter((taskName) => taskName.id ! == deleteTaskById)
+  }
   return (
     
     <div className="App">
@@ -43,7 +47,7 @@ function App() {
       {/* <TodoTask /> */}
 
       {todoList.map((task, key) => (
-        <TodoTask  key={key} task={task}/>
+        <TodoTask  key={key} task={task} deleteTask={deleteTask}/>
       ))}
     </div>
     
