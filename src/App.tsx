@@ -19,7 +19,7 @@ function App() {
     setTodoList([...todoList, newTaskObj]); // essa newTaskObj faz referência ao objeto criado acima
   }
 
-  function deleteTask (deleteTaskById: number) {
+  function deleteTask (deleteTaskById: number): void {
     setTodoList(todoList.filter((taskName) => taskName.id ! == deleteTaskById)
   }
   return (

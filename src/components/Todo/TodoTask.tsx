@@ -7,7 +7,7 @@ interface taskProps{
     deleteTask(deleteTaskById: number): void
 }
 
-function TodoTask({ task }: taskProps) {
+function TodoTask({ task, deleteTask }: taskProps) {
 	
 	return (
 		<div className="card">
@@ -16,7 +16,7 @@ function TodoTask({ task }: taskProps) {
             </div>
 
             <div className="line2" >
-            <span className="btn-card">X</span>
+            <span className="btn-card" onClick={() => deleteTask(task.id)}>X</span>
             </div>
 		</div>
 	);
