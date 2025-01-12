@@ -27,7 +27,19 @@ function App() {
   return (
     <div className="App">
 
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+
 
       <header>
         <h2 className="title">Gerenciador de tarefas</h2>
