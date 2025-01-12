@@ -2,8 +2,8 @@ import TodoTask from './components/Todo/TodoTask';
 import "../src/style/style.css";
 import { useState } from 'react';
 import { Itask } from './interfaces';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   const [task, setTask] = useState("");
