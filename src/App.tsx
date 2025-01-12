@@ -22,6 +22,7 @@ function App() {
 
   function deleteTask(deleteTaskById: number): void {
     setTodoList(todoList.filter((taskName) => taskName.id !== deleteTaskById)); // Remove a tarefa pelo ID
+    toast.error('Tarefa excluida com sucesso.')
   }
 
   return (
